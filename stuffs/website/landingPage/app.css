@@ -1,0 +1,231 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  padding: 3% 5% 0 5% ;
+}
+
+.logo{
+  border-radius: 50%;
+  width:12%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo:hover {
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11),
+              0 24px 46px white;
+}
+
+.nav-image {
+  border-radius: 50%;
+  margin-left: 5%;
+  width: 7%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-image:hover {
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11),
+              0 24px 46px white;
+}
+
+
+
+.hero-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 2%;
+  margin-top:10%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.hero-image {
+  width:40%;
+  height: auto;
+  margin: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.hero-video{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  z-index: -1;
+}
+
+.floating-entry {
+  animation: floatEntry 5s ease-out forwards, floatContinuous 3s ease-in-out 1s infinite;
+}
+
+@keyframes floatEntry {
+  0% {
+      transform: translateY(30px);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+@keyframes floatContinuous {
+  0% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-10px); 
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
+
+.floatingDelay {
+   animation: floatEntry 3s ease-out 1s forwards ;
+}
+
+.hero-cards {
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5%; /* Space between cards */
+  flex-wrap: wrap; /* Allow cards to wrap to the next line */
+}
+
+.card {
+  margin: 2%;
+  background: #fff;
+  padding: 10px;
+  border-top-right-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease-out;
+  text-decoration: none;
+  font-family: "Shrikhand";
+  color: black;
+  font-size: 5vh
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11),
+    0 24px 46px white;
+}
+
+
+@media (max-aspect-ratio: 1/1) {
+
+  .hero-cards {
+    flex-direction: column;
+    font-size: 3vh;
+    
+}
+  .card{
+  font-size:3vh;
+  }
+
+
+  .content{
+    font-size: 5vh;
+  }
+
+  .logo{
+    width:20%;
+  }
+  .nav-image {
+    margin-left: 10%;
+    width: 14%;
+  }
+
+  .hero-image {
+      width: 55%;
+      margin-bottom: -10%;   
+      transform: translate(30%, -40%);
+  }
+
+  .hero-image:last-child {
+    margin-bottom: 1%;
+    transform: translate(-30%, 120%);
+  }
+  .hero-container {
+    margin-bottom: 20%
+  }
+}
+
+
+
+.content {
+  font-family: "Montserrat";
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  font-size: 2vw;
+  
+}
+
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  z-index: -3;
+}
+
+.video-bg-container {
+  position: relative;
+  height: 100vh;
+  z-index: -2;
+}
+
+.image {
+  position: absolute;
+  transform: translate(-50%, -50%);
+
+}
+
+
+
+
+
+.space {
+  height: 50vh; 
+  background: white; 
+}
+
+
+
+
+
+/* Responsive text size for smaller screens */
+@media (max-width: 768px) {
+h1 {
+font-size: 1.5em;
+}
+p {
+font-size: 1em;
+}
+}
