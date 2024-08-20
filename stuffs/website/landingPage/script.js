@@ -1,57 +1,87 @@
-// Import THREE.js
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.module.js';
+document.addEventListener('DOMContentLoaded', () => {
+  let scale = 1;
+  let ticking = false;
+  const scrollbar = document.querySelector('.scrollbar');
+  const heroPage = document.querySelector('.heroPage');
+  const aboutPage = document.querySelector('.aboutPage');
+  const xpPage = document.querySelector('.xpPage');
+  const contactPage = document.querySelector('.contactPage');
 
-let scene, camera, renderer;
-let grid = [];
-const gridSize = 10;
-const boxSize = 1;
-const spacing = 1.2;
+  function updateContent() {
+    heroPage.style.transform = `scale(${scale})`;
+    aboutPage.style.transform = `scale(${scale})`;
+    xpPage.style.transform = `scale(${scale})`;
+    contactPage.style.transform = `scale(${scale})`;
 
-init();
-animate();
+  if (scale >= 1 && scale < 2) {
+    heroPage.style.opacity = 1;            heroPage.style.visibility = 'visible';  
+    aboutPage.style.opacity = 0;           aboutPage.style.visibility = 'hidden'; 
+    xpPage.style.opacity = 0;              xpPage.style.visibility = 'hidden'; 
+    contactPage.style.opacity = 0;         contactPage.style.visibility = 'hidden'; 
 
-function init() {
-  scene = new THREE.Scene();
+    scrollbar.style.backgroundColor = '#ea36fd';
+    
+  } else if (scale >= 2 && scale < 3) {
+    heroPage.style.opacity = 0;            heroPage.style.visibility = 'hidden';
+    aboutPage.style.opacity = 1;           aboutPage.style.visibility = 'visible';
+    xpPage.style.opacity = 0;              xpPage.style.visibility = 'hidden';
+    contactPage.style.opacity = 0;         contactPage.style.visibility = 'hidden';
 
-  camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-  camera.position.z = 20;
+    scrollbar.style.backgroundColor = '#97e7a9';
+  } else if (scale >= 3 && scale < 4) {
+    heroPage.style.opacity = 0;           heroPage.style.visibility = 'hidden';
+    aboutPage.style.opacity = 0;          aboutPage.style.visibility = 'hidden';
+    xpPage.style.opacity = 1;             xpPage.style.visibility = 'visible';
+    contactPage.style.opacity = 0;        contactPage.style.visibility = 'hidden';
 
-  renderer = new THREE.WebGLRenderer({ antialias: true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  document.body.appendChild(renderer.domElement);
+    scrollbar.style.backgroundColor = '#2800f7';
+  }
+  else if (scale >= 4 && scale < 5){
+    heroPage.style.opacity = 0;            heroPage.style.visibility = 'hidden';
+    aboutPage.style.opacity = 0;           aboutPage.style.visibility = 'hidden';
+    xpPage.style.opacity = 0;              xpPage.style.visibility = 'hidden';
+    contactPage.style.opacity = 1;         contactPage.style.visibility = 'visible';
 
-  const geometry = new THREE.BoxGeometry(boxSize, boxSize, boxSize);
-  const material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
-
-  for (let x = -gridSize; x <= gridSize; x++) {
-    for (let y = -gridSize; y <= gridSize; y++) {
-      for (let z = -gridSize; z <= gridSize; z++) {
-        const box = new THREE.Mesh(geometry, material);
-        box.position.set(x * spacing, y * spacing, z * spacing);
-        grid.push(box);
-        scene.add(box);
-      }
-    }
+    scrollbar.style.backgroundColor = '#f099a5';
   }
 
-  window.addEventListener('resize', onWindowResize, false);
+  const scrollbarWidth = `${(scale - 1) / 4 * 100}%`; 
+    scrollbar.style.width = scrollbarWidth;
+  ticking = false;
+
 }
 
-function onWindowResize() {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-}
 
-function animate() {
-  requestAnimationFrame(animate);
 
-  grid.forEach(box => {
-    box.position.z += 0.01;
-    if (box.position.z > gridSize * spacing) {
-      box.position.z = -gridSize * spacing;
-    }
+   document.querySelectorAll('.anchors a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        scale = parseFloat(this.getAttribute('data-scale'));
+        if (!ticking) {
+          requestAnimationFrame(updateContent);
+          ticking = true;
+        }
+      }
+    )
   });
 
-  renderer.render(scene, camera);
-}
+
+  window.addEventListener('wheel', (event) => {
+    if (event.deltaY > 0) {
+      scale += 0.1;
+    } else {
+      scale -= 0.1; 
+    }
+
+ 
+    scale = Math.max(1, Math.min(scale, 5));
+
+    if (!ticking) {
+      requestAnimationFrame(updateContent);
+      ticking = true;
+    }
+     
+  });
+});
+

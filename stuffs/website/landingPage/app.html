@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel = "stylesheet" href = "app.css">
+  <script src = "script.js"></script>>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Shrikhand">
 </head>
@@ -12,86 +13,142 @@
 
 <body>
 
-  <div class="navbar">
-    <div class="left-icon">
-      <span class="icon">
-        <img src = "assets/icons/logo_idle.gif" class = "logo">
-      </span> 
-  </div>
-    <div class="right-icons">
+  <div class="scrollbar-container">
+    <div class="scrollbar"></div>
+  </div>  
 
-      <span class="icon">
-        <img src = "assets/icons/fb.png" style = "float:right;" class = "nav-image">
-      </span> 
-      <span class="icon">
-        <img src = "assets/icons/github.png" style = "float:right; "class = "nav-image">
-      </span> 
-      <span class="icon">
-        <img src = "assets/icons/in.png" style = "float:right; "class = "nav-image">
-      </span>
+    <div class="navbar">
+          <div class = "anchors">
+              <div class="left-icon">
+                <span class="icon">
+                  <a href="#" data-scale="1">
+                    <img src = "assets/icons/logo_idle.gif" class = "logo">
+                  </a>
+                </span> 
+                </div>
+          </div>
+          <div class="right-icons">
+
+            <span class="icon">
+              <a href = "https://www.facebook.com/lewc1d" target="_blank">
+                <img src = "assets/icons/fb.png" style = "float:right;" class = "nav-image">
+              </a>
+              
+
+            </span> 
+            <span class="icon">
+              <a href = "https://github.com/l-uci-d" target="_blank">
+                <img src = "assets/icons/github.png" style = "float:right; "class = "nav-image">
+              </a>
+              
+            </span> 
+            <span class="icon">
+              <a href = "https://www.linkedin.com/in/abenojastephen/" target="_blank">
+                <img src = "assets/icons/in.png" style = "float:right; "class = "nav-image">
+              </a>
+             
+            </span>
+          </div>
     </div>
-  </div>
+
     
     <video class="hero-video" autoplay muted loop playsinline>
       <source src="assets/vid/bg.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
 
-    <div class = "hero-container floating-entry">
-      <img src = "assets/imgs/steph.png"  class = "hero-image">
-      <img src = "assets/imgs/abe.png"  class = "hero-image">
-    </div>
+
     
-    <div class="content floatingDelay" style="opacity: 0;">
-      Student | Developer | Cloud Enthusiast
- 
+      <div class = "mainContent">
+          <div class = "heroPage">
+
+                <div class = "hero-container floating-entry">
+                  <img src = "assets/imgs/steph.png"  class = "hero-image">
+                  <img src = "assets/imgs/abe.png"  class = "hero-image">
+                </div>
+                
+                <div class="content floatingDelay" style="opacity: 0;">
+
+                  Student | Developer | Cloud Enthusiast
+                  
+                      <div class="hero-cards">
+
+                        <div class = "anchors">
+                          <a href="#" data-scale="2">
+                            <div class="far"><div class="card">About</div></div>
+                          </a>
+                        </div>
+
+                        <div class = "anchors">
+                          <a href="#" data-scale="3">
+                            <div class="near"><div class="card">Experience</div></div>
+                          </a>
+                        </div>
+
+                        <div class = "anchors">
+                          <a href="#" data-scale="4">
+                            <div class="farthest"><div class="card">Contact</div></div>
+                          </a>
+                        </div>
+                      </div>
+                </div>
+          </div>
       
-    
-      <div class = "hero-cards">
-        <div class = "card"> About</div>
-        <div class = "card"> Experience</div>
-        <div class = "card"> Contact</div>
-
-      </div>
-
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-     
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  
-    </div>
 
 
-      </div>      
 
+    <div class = "aboutPage">
+      
+          <div class = "page-container floating-entry">
+            <img src = "assets/imgs/abt.png"  class = "header-image" style="width: 40%;">
+          </div>
 
-    <div class = "space"> </div>
-    
-    <div class = "video-bg-container">
-
-        <video class="video-bg" autoplay muted playsinline>
-          <source src="assets/vid/2d grid 2.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-
-    </div>
-    
-
-
-    <div class = "content">
-
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          <div class="content" >
+              <div class = "hero-cards">
+                <div class = "abt-box">
+                  Hiiiiiiiiiii!
+                </div>
+              </div>
+          </div>
 
     </div>
 
-  
 
-  
+    <div class = "xpPage">
+
+          <div class = "page-container floating-entry">
+            <img src = "assets/imgs/xp.png"  class = "header-image">
+          </div>
+          
+          <div class="content" >
+            <div class = "hero-cards">
+              <div class = "xp-box">
+                Many xp
+              </div>
+            </div>
+        </div>
+          
+    </div>
+
+
+
+    <div class = "contactPage">
+
+        <div class = "page-container floating-entry">
+          <img src = "assets/imgs/cont.png"  class = "header-image">
+        </div>
+        
+        <div class="content" >
+          <div class = "hero-cards">
+            <div class = "cont-box">
+              call me anytime
+            </div>
+          </div>
+        </div>
+
+    </div>
+
+    </div>
 
 </body>
 </html>

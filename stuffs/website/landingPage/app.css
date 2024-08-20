@@ -1,19 +1,40 @@
 body, html {
-  margin: 0;
-  padding: 0;
+  margin: auto;
   height: 100%;
   width: 100%;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  
+}
+
+.mainContent{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content:  space-around;
+  align-items: center;
+}
+
+
+a {
+  color: inherit;
+  text-decoration: inherit; 
 }
 
 .navbar {
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 9999;
   
   padding: 3% 5% 0 5% ;
 }
 
 .logo{
+  z-index: 9999;
   border-radius: 50%;
   width:12%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -51,11 +72,34 @@ body, html {
   transition: transform 0.3s ease-in-out;
 }
 
+
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+
+  transition: transform 0.3s ease-in-out;
+}
+
 .hero-image {
+  pointer-events: none;
   width:40%;
   height: auto;
   margin: 0;
   transition: transform 0.3s ease-in-out;
+  transition: all 0.3s ease-out;
+}
+
+
+.header-image{
+  margin:auto;
+  pointer-events: none;
+  height:auto;
+  max-width: 50%;
+  transition: transform 0.3s ease-in-out;
+  transition: all 0.3s ease-out;
 }
 
 .hero-video{
@@ -69,7 +113,7 @@ body, html {
 }
 
 .floating-entry {
-  animation: floatEntry 5s ease-out forwards, floatContinuous 3s ease-in-out 1s infinite;
+  animation: floatEntry 1s ease-out forwards, floatContinuous 3s ease-in-out 1s infinite;
 }
 
 @keyframes floatEntry {
@@ -96,63 +140,133 @@ body, html {
 }
 
 .floatingDelay {
-   animation: floatEntry 3s ease-out 1s forwards ;
+   animation: floatEntry 1s ease-out 1s forwards, floatContinuous 5s ease-in-out 1s infinite;
 }
 
 .hero-cards {
+  pointer-events: auto;
   margin-top: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5%; /* Space between cards */
-  flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  gap: 5%;
+ 
 }
 
 .card {
-  margin: 2%;
-  background: #fff;
-  padding: 10px;
+  margin: 1%;
+  background-color: rgba(255, 255, 255, 0.1); 
+  backdrop-filter: blur(10px);
+  border: 2px solid #FFF5EA;
+  padding: 10px 20px 10px 20px;
   border-top-right-radius: 10px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.04);
   transition: all 0.3s ease-out;
-  text-decoration: none;
   font-family: "Shrikhand";
-  color: black;
-  font-size: 5vh
+  color: #f2a3fe;
+  font-size: 3vh;
+  width: 20vh;
 }
 
 .card:hover {
   transform: translateY(-5px) scale(1.005) translateZ(0);
   box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11),
-    0 24px 46px white;
+    0 24px 46px #FFF5EA;
 }
 
+
+.abt-box {
+  width: 300px;
+  height: 200px;
+  border: 2px solid #ebffc5; 
+  background-color: rgba(235,255,197,0.1);
+  backdrop-filter: blur(10px); 
+  border-radius: 10px; 
+  transition: all 0.3s ease-out;
+
+}
+
+.abt-box:hover {
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11),
+    0 24px 46px #FFF5EA;
+}
+
+
+.xp-box {
+  width: 300px;
+  height: 200px;
+  border: 2px solid #2400cf; 
+  background-color: rgba(226,102,121,0.1);
+  backdrop-filter: blur(10px); 
+  border-radius: 10px; 
+  transition: all 0.3s ease-out;
+
+}
+
+.xp-box:hover {
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11),
+    0 24px 46px #f8e2d1;
+}
+
+
+.cont-box {
+  width: 300px;
+  height: 200px;
+  border: 2px solid #9ce2b7; 
+  background-color: rgba(77,159,151,0.1);
+  backdrop-filter: blur(10px); 
+  border-radius: 10px; 
+  transition: all 0.3s ease-out;
+
+}
+
+.cont-box:hover {
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11),
+    0 24px 46px #eb6e8e;
+}
+
+
+.abt-box {
+  width: 300px;
+  height: 200px;
+  border: 2px solid #ebffc5; 
+  background-color: rgba(235,255,197,0.1);
+  backdrop-filter: blur(10px); 
+  border-radius: 10px; 
+  transition: all 0.3s ease-out;
+
+}
+
+.abt-box:hover {
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(0, 0, 0, 0.11),
+    0 24px 46px #FFF5EA;
+}
 
 @media (max-aspect-ratio: 1/1) {
 
   .hero-cards {
     flex-direction: column;
-    font-size: 3vh;
-    
-}
-  .card{
-  font-size:3vh;
+    font-size: 3vw;
+    margin-top: calc(100px / 100vw);
+
   }
 
+  .card{
+    margin-bottom: 20%;
+    font-size:3vw;
+  }
 
   .content{
-    font-size: 5vh;
+    font-size: 20px;
   }
 
   .logo{
     width:20%;
   }
+
   .nav-image {
     margin-left: 10%;
     width: 14%;
@@ -168,6 +282,7 @@ body, html {
     margin-bottom: 1%;
     transform: translate(-30%, 120%);
   }
+
   .hero-container {
     margin-bottom: 20%
   }
@@ -178,11 +293,10 @@ body, html {
 .content {
   font-family: "Montserrat";
   position: relative;
-  z-index: 1;
   color: white;
   text-align: center;
-  font-size: 2vw;
-  
+  font-size: 3vw;
+  transition: all .35s ease-out;
 }
 
 .video-bg {
@@ -201,31 +315,75 @@ body, html {
   z-index: -2;
 }
 
-.image {
-  position: absolute;
-  transform: translate(-50%, -50%);
 
+
+.scrollbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px; 
+  z-index: 9999;
+}
+
+.scrollbar {
+  width: 0;
+  height: 100%;
+  background-color: #fd294e; 
+  transition: width 1s ease-in-out; 
+  transition: background-color 1s ease-out;
+  transition: all .35s ease-out;
 }
 
 
 
 
 
-.space {
-  height: 50vh; 
-  background: white; 
-}
-
-
-
-
-
-/* Responsive text size for smaller screens */
 @media (max-width: 768px) {
-h1 {
-font-size: 1.5em;
+  h1 {
+  font-size: 1.5em;
+  }
+  p {
+  font-size: 1em;
+  }
 }
-p {
-font-size: 1em;
+
+
+.heroPage {
+
+  pointer-events: none;
+  position: fixed;
+  transition: transform 0.1s ease-out, opacity 0.5s ease-out;
+  opacity: 1;
 }
+
+.aboutPage {
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  position: fixed;
+  scale: 0.5;
+  transition: transform 0.1s ease-out, opacity 0.5s ease-out;
+  opacity: 0;
 }
+
+.xpPage {
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  position: fixed;
+  scale: 0.33;
+  transition: transform 0.1s ease-out, opacity 0.5s ease-out;
+  opacity: 0;
+}
+
+.contactPage {
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  position: fixed;
+  scale: 0.2;
+  transition: transform 0.1s ease-out, opacity 0.5s ease-out;
+  opacity: 0;
+}
+
